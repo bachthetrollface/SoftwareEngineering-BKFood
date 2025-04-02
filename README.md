@@ -16,7 +16,7 @@
     ```
 - Tới thư mục làm việc của dự án:
     ```bash
-    cd SoftwareEngineering-BKFood/bkfood
+    cd SoftwareEngineering-BKFood
     ```
     
 ### 2. Cài đặt môi trường :
@@ -27,6 +27,10 @@
 
 ## :anchor: Cách sử dụng:
   - Kết nối hệ thống với cơ sở dữ liệu đã có sẵn (cập nhật cấu trúc cơ sở dữ liệu):
+    ```bash
+    # move to Django's working directory
+    cd bkfood
+    ```
     ```bash
     python3 manage.py makemigrations homepage
     python3 manage.py makemigrations
