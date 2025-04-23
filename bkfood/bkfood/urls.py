@@ -24,11 +24,11 @@ from django.shortcuts import redirect
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', lambda request: redirect('homepage/')),
-    path('logout/', profileViews.logout_view, name = 'logout'),
+    # # path('logout/', profileViews.logout_view, name = 'logout'),
     path('homepage/', include('homepage.urls')),
-    path('postspage/', include('postspage.urls')),
-    path('profile/', include('profilepage.urls')),
-    path('settings/', include('settingspage.urls')),
+    # path('postspage/', include('postspage.urls')),
+    # path('profile/', include('profilepage.urls')),
+    # path('settings/', include('settingspage.urls')),
 ]
 
 if settings.DEBUG:
