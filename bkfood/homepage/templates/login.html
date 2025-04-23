@@ -2,20 +2,19 @@
 {% load static%}
 {% block info_user%}
 <div id="-box-login">
-    <a href="" id="tab_login"><i class="fa fa-fw fa-user"></i> Đăng nhập</a>
+    <a href="" id="tab_login"><i class="fa fa-fw fa-user"></i>Log In</a>
     <div class="login">
         <form method='POST'>
             {% csrf_token %}
-            <h1>Login</h1>
+            <h1>Login With Your Account</h1>
             <input id = "inputUsername" name = 'username' placeholder="Username" type="text" oninput="checkLogin()">
             <input id = "inputPsw" name = 'password' placeholder="Password" type="password" oninput="checkLogin()">
-            <button name='login' type="submit" id="btnLogin" disabled="True">Submit</button>
+            <button name='login' type="submit" id="btnLogin" disabled="True">Log In</button>
             <script>
                 function checkLogin() {
-                    // Kiểm tra điều kiện và thiết lập thuộc tính disabled
                     var inputUsername = document.getElementById('inputUsername');
                     var inputPsw = document.getElementById('inputPsw');
-                    // Thay bằng điều kiện thực tế từ server hoặc nơi khác
+
                     if (inputPsw.value.length >= 8 && inputUsername.value.length > 0){
                     document.getElementById('btnLogin').disabled = false;
                     }
@@ -28,7 +27,7 @@
     </div>
 </div>
 <div id="-box-signup" >
-    <button class="sign-up-btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Đăng kí</button>
+    <button class="sign-up-btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
     <div id="id01" class="modal">
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
         <form class="modal-content" method='POST' >
@@ -50,10 +49,10 @@
                 <input type="password" placeholder="Repeat Password" name="rgt_repsw" id="inputRepsw" oninput="checkPassword()" required>
                 
                 {% comment %} {{form_rgt}} {% endcomment %}
-                <label for="role"><strong>Đăng kí với vai trò:</strong></label>
+                <label for="role"><strong>You are signing up as a:</strong></label>
                 <select id="role" name="role">
-                    <option value="manager">Người quản lý</option>
-                    <option value="sharer">Người chia sẻ</option>
+                    <option value="manager">Manager</option>
+                    <option value="sharer">Sharer</option>
                     <!-- Thêm các option khác nếu cần -->
                 </select>
                 <!-- <label>
