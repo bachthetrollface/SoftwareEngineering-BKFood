@@ -16,12 +16,10 @@
                     var inputUsername = document.getElementById('inputUsername');
                     var inputPsw = document.getElementById('inputPsw');
                     // Thay bằng điều kiện thực tế từ server hoặc nơi khác
-                    if (inputPsw.value.length >= 8 && inputUsername.value.length > 0) {
-                        console.log('Ấn được nhé');
+                    if (inputPsw.value.length >= 8 && inputUsername.value.length > 0){
                     document.getElementById('btnLogin').disabled = false;
                     }
                     else{
-                        console.log('Button disabled true.');
                         document.getElementById('btnLogin').disabled = true;
                     }
                 }
