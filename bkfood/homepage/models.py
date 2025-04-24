@@ -242,15 +242,15 @@ class Comment(models.Model):
 
     
 #Model for chatPage
-# class Message(models.Model):
-#     sender = models.ForeignKey(Account, on_delete=models.CASCADE, null=False, related_name='send')
-#     receiver = models.ForeignKey(Account, on_delete=models.CASCADE, null= False, related_name='recieve')
-#     content = models.CharField(max_length=1000)
-#     time = models.DateTimeField(default=timezone.datetime.now())
-#     def __str__(self):
-#         return f"{self.sender} to {self.receiver} ({self.time})"
+class Message(models.Model):
+    sender = models.ForeignKey(Account, on_delete=models.CASCADE, null=False, related_name='send')
+    receiver = models.ForeignKey(Account, on_delete=models.CASCADE, null= False, related_name='recieve')
+    content = models.CharField(max_length=1000)
+    time = models.DateTimeField(default=timezone.datetime.now())
+    def __str__(self):
+        return f"{self.sender} to {self.receiver} ({self.time})"
     
     
-# class ImageMessage(models.Model):
-#     message = models.ForeignKey(Message, on_delete=models.CASCADE)
-#     img = models.ImageField()
+class ImageMessage(models.Model):
+    message = models.ForeignKey(Message, on_delete=models.CASCADE)
+    img = models.ImageField()
