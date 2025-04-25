@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manager</title>
+    <title> 
+      {% if role == 'sharer'%} Registration - Sharer
+      {% elif role == 'manager'%} Registration - Manager
+      {%else%} Registration
+      {%endif%}
+    </title>
     <link rel="stylesheet" href="{% static 'css/register.css'%}">
 </head>
 <body>
@@ -12,56 +17,56 @@
 {% if role == 'sharer' %}
 <div class="container">
   <header class="header">
-    <h1 id="title" class="text-center"><b>Thông tin với vai trò người chia sẻ</b></h1>
+    <h1 id="title" class="text-center"><b>Sharer Information</b></h1>
     <p id="description" class="description text-center">
-      Vui lòng cung cấp cho chúng tôi những thông tin dưới đây!
+      Please provide the following information!
     </p>
   </header>
   <form id="survey-form" method = "POST">
     {% csrf_token %}
     <div class="form-group">
-      <label id="name-label" for="name">Tên của bạn: </label>
+      <label id="name-label" for="name">Your name: </label>
       <input
         type="text"
         name="name"
         id="name"
         class="form-control"
-        placeholder="Nhập tên của bạn"
+        placeholder="e.g., Nguyễn Văn A"
         required
       />
     </div>
     <div class="form-group">
-      <label id="name-label" for="name">Độ tuổi: </label>
+      <label id="name-label" for="name">Age: </label>
       <input
         type="age"
         name="age"
         id="age"
         class="form-control"
-        placeholder="Nhập tuổi của bạn"
+        placeholder="e.g., 20"
         required
       />
     </div>
     <div class="form-group">
-      <p>Khu vực của bạn: </p>
+      <p>Your location: </p>
       <select class="form-select form-select-sm mb-3" id="city" name="city" aria-label=".form-select-sm">
-      <option value="" selected>Chọn tỉnh thành</option>           
+      <option value="" selected>Choose your city</option>           
       </select>
                 
       <select class="form-select form-select-sm mb-3" id="district" name="district" aria-label=".form-select-sm">
-      <option value="" selected>Chọn quận huyện</option>
+      <option value="" selected>Choose your district</option>
       </select>
       
       <select class="form-select form-select-sm" id="ward" name="ward" aria-label=".form-select-sm">
-      <option value="" selected>Chọn phường xã</option>
+      <option value="" selected>Choose your ward</option>
       </select>
     </div>
     <div class="form-group">
-      <p>Giới thiệu về bạn: </p>
+      <p>Brief Introduction: </p>
       <textarea
         id="comments"
         class="input-textarea"
         name="comment"
-        placeholder="Giới thiệu về bạn"
+        placeholder="Write something about yourself"
       ></textarea>
     </div>
     
@@ -72,30 +77,30 @@
     </div>
   </form>
 </div>
-{% else %} <!-- Nếu với vai trò người quản lý manager-->
+{% else %}
 <div class="container">
     <header class="header">
-      <h1 id="title" class="text-center"><b>Thông tin người quản lý</b></h1>
+      <h1 id="title" class="text-center"><b>Manager Information</b></h1>
       <p id="description" class="description text-center">
-        Vui lòng cung cấp cho chúng tôi những thông tin dưới đây!
+        Please provide the following information!
       </p>
     </header>
     <form id="survey-form" method = "POST">
         {% csrf_token %}
       <div class="form-group">
-        <label id="name-label" for="name">Tên cửa hàng: </label>
+        <label id="name-label" for="name">Diner/Restaurant Name: </label>
         <input
           type="text"
           name="name"
           id="name"
           class="form-control"
-          placeholder="Nhập tên của cửa hàng"
+          placeholder="Name of your diner/restaurant"
           required
         />
       </div>
       <div class="form-group">
         <label id="phone-label" for="phone">
-            Số điện thoại:
+            Phone number:
         </label>
         <input type="tel"
         name="phone"
@@ -106,37 +111,37 @@
         >
       </div>
       <div class="form-group">
-        <p>Khu vực của cửa hàng: </p>
+        <p>Diner/Restaurant's location: </p>
         <select class="form-select form-select-sm mb-3" id="city" name="city" aria-label=".form-select-sm">
-            <option value="" selected>Chọn tỉnh thành</option>           
-            </select>
-                      
-            <select class="form-select form-select-sm mb-3" id="district" name="district" aria-label=".form-select-sm">
-            <option value="" selected>Chọn quận huyện</option>
-            </select>
-            
-            <select class="form-select form-select-sm" id="ward" name="ward" aria-label=".form-select-sm">
-            <option value="" selected>Chọn phường xã</option>
-            </select>
+          <option value="" selected>Choose your city</option>           
+          </select>
+                    
+          <select class="form-select form-select-sm mb-3" id="district" name="district" aria-label=".form-select-sm">
+          <option value="" selected>Choose your district</option>
+          </select>
+          
+          <select class="form-select form-select-sm" id="ward" name="ward" aria-label=".form-select-sm">
+          <option value="" selected>Choose your ward</option>
+          </select>
       </div>
       <div class="form-group">
-        <label id="name-label" for="name">Địa chỉ cụ thể: </label>
+        <label id="name-label" for="name">Full address: </label>
         <input
           type="text"
           name="address"
           id="address"
           class="form-control"
-          placeholder="Nhập địa chỉ của cửa hàng"
+          placeholder="Write your diner/restaurant's full address"
           required
         />
       </div>
       <div class="form-group">
-        <p>Giới thiệu về cửa hàng: </p>
+        <p>Brief Introduction: </p>
         <textarea
           id="comments"
           class="input-textarea"
           name="comment"
-          placeholder="Giới thiệu về cửa hàng của bạn"
+          placeholder="Write something about your diner/restaurant"
         ></textarea>
       </div>
   

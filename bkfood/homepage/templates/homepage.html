@@ -4,13 +4,14 @@
 {% comment %} block của avatar trên header {% endcomment %}
 {% block info_user%}
 <div id="-box-nav">
-    <a href="{% url 'postspage:posts' %}" id="community"><i class="fa fa-fw fa-users"></i>Khám phá</a>
+    <a href="{% url 'postspage:postsPage' %}" id="community"><i class="fa fa-fw fa-users"></i>Discover</a>
     <div class="subnav">
-        <a href="{% url 'postspage:restaurants' %}">Dịch vụ</a>
-        <a href="{% url 'postspage:posts' %}">Bài chia sẻ</a>
+        <a href="{% url 'postspage:restaurants' %}">Diners</a>
+        <a href="{% url 'postspage:posts' %}">Posts</a>
     </div>
 </div>
-{% if acc.role == 'sharer' %}
+
+{% comment %} {% if acc.role == 'sharer' %}
 <div class="setting_icon">
     <a href="{% url 'shoppingcart:shoppingCart'  %}" class="setting">
         <div >
@@ -19,7 +20,8 @@
         </div>
     </a>
 </div>
-{% endif %}
+{% endif %} {% endcomment %}
+
 <div class="setting_icon">
     <a href="{% url 'settingspage:settingsPage' %}" class="setting">
         <div >
@@ -37,7 +39,7 @@
 {% block headerSearch %}
 <div class="center">
     <form>
-        <input type="text" placeholder="Nay đi đâu ta ..." id="headerSearch">
+        <input type="text" placeholder="Type something..." id="headerSearch">
         <button name="btnHeaderSearch" type="button" onclick="clickHeaderSearch(event)"><i class="fa fa-search"></i></button>
     </form>
 </div>
@@ -68,7 +70,7 @@
 {% block feature %}
         {% comment %} Phần hiển thị top các cửa hàng/ dịch vụ ---------------------------------------{% endcomment %}
         <div id="top-shop">
-            <h2 class="h2-header">TOP DỊCH VỤ</h2>
+            <h2 class="h2-header">TOP SERVICES</h2>
             <div class="tab">
                 {% for shop in top_shops %}
                 <button class = "tablinks {% if forloop.counter == 1 %}active{% endif %}" onclick="openCity(event, 'top{{ forloop.counter }}')">
@@ -95,7 +97,7 @@
         
         {% comment %} Phần hiển thị top bài viết nổi bật-------------------------------------------- {% endcomment %}
         <div id="comment">
-            <h2 class="h2-header">BÀI VIẾT TIÊU BIỂU</h2>
+            <h2 class="h2-header">TOP POSTS</h2>
             <div id="comment-body">
                 <div class="prev">
                     <a href="#">
@@ -113,7 +115,7 @@
                             <h3>Time: {{item.post.time}}</h3>
                             <p> 
                                 {% if item.post.provider %}
-                                    Đang ở: <a href="{% url 'profilepage:profilePage' item.post.provider.account.id%}"><strong>{{item.post.provider.name}}</strong></a>
+                                    Is at: <a href="{% url 'profilepage:profilePage' item.post.provider.account.id%}"><strong>{{item.post.provider.name}}</strong></a>
                                 {% else %}
                                     {% if item.post.ward and item.post.district and item.post.city%}
                                         <i class="fa-solid fa-location-dot"></i>
@@ -175,7 +177,6 @@
                     }
                     likeElement.innerText = newLike
         
-                    // Gửi yêu cầu AJAX để cập nhật số lượng like trên server
                     const xhr = new XMLHttpRequest();
                     xhr.open("POST", `/homepage/update_likes/${postId}/`, true);
                     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -188,7 +189,7 @@
         <br>
         {% comment %} Phần tìm kiếm ----------------------------------------------------------------- {% endcomment %}
         <div id="TimKiem"></div>
-        <h2 class="h2-header" id="searchhh">TÌM KIẾM</h2>
+        <h2 class="h2-header" id="searchhh">SEARCH</h2>
         <div id="searching">
             <div class="box-left" id="containerSearch">
                 <!-- Mặc định chưa tìm kiếm là hiển thị các sản phẩm mới nhất-->
@@ -214,11 +215,11 @@
 
             <div class="box-right">
                 <div class="searchcontent">
-                    <p>Tìm kiếm nhanh:</p>
-                    <button class="btnTag" name="food" onclick="searchTag(event, 'food')">Đồ ăn</button>
-                    <button class="btnTag" name="drink" onclick="searchTag(event, 'drink')">Đồ uống</button>
-                    <button class="btnTag" name="entertainment"  onclick="searchTag(event, 'entertainment')">Giải trí</button>
-                    <button class="btnTag" name="service" onclick="searchTag(event, 'service')">Dịch vụ khác</button>
+                    <p>Quick Search:</p>
+                    <button class="btnTag" name="food" onclick="searchTag(event, 'food')">Food</button>
+                    <button class="btnTag" name="drink" onclick="searchTag(event, 'drink')">Beverages</button>
+                    <button class="btnTag" name="entertainment"  onclick="searchTag(event, 'entertainment')">Entertainment</button>
+                    <button class="btnTag" name="service" onclick="searchTag(event, 'service')">Other</button>
                     <hr>
                 </div>
                 <div class="search">
@@ -229,7 +230,7 @@
                         <option value="product">Sản phẩm</option>
                         <!-- Thêm các option khác nếu cần -->
                     </select>
-                    <input id="searchKey" type="text" placeholder="Nay đi đâu ta ..." name="search">
+                    <input id="searchKey" type="text" placeholder="Type something..." name="search">
                     <!-- <button id = "filter" type="submit"><i class="fa fa-filter"></i></button> -->
                     <button name="btnSearch" id = "search" type="button" onclick="mainSearch(event)"><i class="fa fa-search"></i></button>
                     <br>
