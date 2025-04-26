@@ -1,16 +1,17 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BKFood - {{target_user.name}}</title>
     <link rel = "icon" href ="{% static 'images/logo.png' %}" type = "image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/votestyle.css' %}">
     <link rel="stylesheet" href="{% static 'css/postStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://kit.fontawesome.com/bc4d8a1311.js" crossorigin="anonymous"></script>
     <script src="{% static 'js/votescript.js' %}"></script>
