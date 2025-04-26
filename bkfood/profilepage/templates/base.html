@@ -8,10 +8,10 @@
     <title>BKFood - {{target_user.name}}</title>
     <link rel = "icon" href ="{% static 'images/logo.png' %}" type = "image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/votestyle.css' %}">
     <link rel="stylesheet" href="{% static 'css/postStyle.css' %}">
-    <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://kit.fontawesome.com/bc4d8a1311.js" crossorigin="anonymous"></script>
     <script src="{% static 'js/votescript.js' %}"></script>
@@ -163,7 +163,7 @@
         <div class="top-contents">
             <div class="top-contents-left">
                 <i class="fa-solid fa-newspaper"></i>
-                <h1>Bài viết</h1>
+                <h1>Posts</h1>
             </div>
             <div class="top-contents-right">
 
@@ -247,7 +247,7 @@
                 </div>
               </div>
             {% else %}
-                <h3 style="padding: 20px 20px 20px 20px;">Người này hiện chưa có bài viết nào!</h3>
+                <h3 style="padding: 20px 20px 20px 20px;">This user doesn't have any posts yet!</h3>
             {% endif %}
             <!-- End listpost -->
         </div>
