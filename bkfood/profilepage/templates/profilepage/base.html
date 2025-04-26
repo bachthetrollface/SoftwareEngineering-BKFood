@@ -7,14 +7,14 @@
     <title>BKFood - {{target_user.name}}</title>
     <link rel = "icon" href ="{% static 'images/logo.png' %}" type = "image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="{% static 'header.css' %}">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="{% static 'votestyle.css' %}">
-    <link rel="stylesheet" href="{% static 'postStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/votestyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/postStyle.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://kit.fontawesome.com/bc4d8a1311.js" crossorigin="anonymous"></script>
-    <script src="{% static 'votescript.js' %}"></script>
-    <script src="{% static 'postScript.js' %}"></script>
+    <script src="{% static 'js/votescript.js' %}"></script>
+    <script src="{% static 'js/postScript.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -23,8 +23,9 @@
             <a href="{% url 'homepage:homePage' %}" class="logo">
                 <img src="{% static 'images/logo.png' %}"  alt="logo">
                 <div class = "description">
-                    <h2>BKvivu</h2>
-                    <p>Nền tảng chia sẻ dịch vụ hàng đầu</p>
+                    <h2>BKFood</h2>
+                    <p>Dining Experience Sharing </p>
+                    <p>and Recommendation Platform</p>
                 </div> 
             </a>
         </div>
@@ -274,9 +275,9 @@
         <ul class="menu">
           <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
           <li class="menu__item"><a class="menu__link" href="#">About</a></li>
-          <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+          {% comment %} <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
           <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
-          <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">Contact</a></li> {% endcomment %}
 
         </ul>
         <p>&copy;2025 BKFood</p>

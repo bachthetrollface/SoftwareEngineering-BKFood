@@ -14,11 +14,11 @@ body {
 /* header */
 .header {
   height: 80px;
-  background-color: #bcd3a3d2;
+  background-color: #dd4444;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  /* padding: 0 20px; */
 }
 
 .header img {
