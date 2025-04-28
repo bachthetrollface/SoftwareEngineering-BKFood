@@ -37,7 +37,7 @@
                     <a href="{% url 'postspage:posts' %}">Bài chia sẻ</a>
                 </div>
             </div>
-            {% if acc.role == 'sharer' %}
+            {% comment %} {% if acc.role == 'sharer' %}
             <div class="setting_icon">
                 <a href="{% url 'shoppingcart:shoppingCart'  %}" class="setting">
                     <div >
@@ -46,7 +46,7 @@
                     </div>
                 </a>
             </div>
-            {% endif %}
+            {% endif %} {% endcomment %}
             <div class="setting_icon">
                 <a href="{% url 'settingspage:settingsPage' %}" class="setting">
                     <div >

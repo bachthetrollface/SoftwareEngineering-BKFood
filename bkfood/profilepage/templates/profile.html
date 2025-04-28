@@ -136,11 +136,11 @@
                                         <span>Đ</span>
                                     </div>
 
-                                    {% if user.account.role == 'sharer' %}
+                                    {% comment %} {% if user.account.role == 'sharer' %}
                                         <button onclick=addToCart({{product.id}}) class="buy" type="submit">
                                             <i class="fa-solid fa-circle-plus"></i>
                                         </button>
-                                    {% endif %}
+                                    {% endif %} {% endcomment %}
                                 </div>
                             </div>
                         {% endfor %}
@@ -151,7 +151,7 @@
             </div>
         </div>
     </div>
-    <script>
+    {% comment %} <script>
         function actionBuy(){
             alert("Sản phẩm đã được thêm vào giỏ hàng");
         }
@@ -170,5 +170,5 @@
                     }
                 });
             }
-    </script>
+    </script> {% endcomment %}
     {% endblock buttom_profile %}
