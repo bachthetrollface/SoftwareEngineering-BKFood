@@ -1,11 +1,11 @@
-# BKvivu - Nền tảng chia sẻ trải nghiệm và quản lý dịch vụ
+# BKFood - Nền tảng chia sẻ trải nghiệm và quản lý dịch vụ
 - [Giới thiệu](#angel-giới-thiệu)
 - [Cài đặt](#gear-cài-đặt)
 - [Cách sử dụng](#anchor-cách-sử-dụng)
 - [Tính năng chính](#anger-tính-năng-chính)
 
 ## :angel: Giới thiệu
-Đây là một project mà teams phát triển đã thực hiện trong quá trình học môn `Intro to software engineering` tại `HUST`. Dự án được triển khai trên web dựa vào framework `django`. Hệ thống sẽ giúp cho người dùng dựa trên 2 vai trò chính (người chia sẻ, người quản lý). Người chia sẻ có thể tìm kiếm, mua và chia sẻ những trải nghiệm dịch vụ của mình thông qua tạo bài viết... .Còn đối với người quản lý, nền tảng sẽ cung cấp tính năng để người dùng quảng bá dịch vụ của mình cũng như kinh doanh, thống kê doanh thu....
+
 
 ## :gear: Cài đặt
 
@@ -28,7 +28,7 @@
 ## :anchor: Cách sử dụng:
   - Kết nối hệ thống với cơ sở dữ liệu đã có sẵn (cập nhật cấu trúc cơ sở dữ liệu):
     ```bash
-    # move to Django's working directory
+    # move to Django\'s working directory
     cd bkfood
     ```
     ```bash
@@ -68,28 +68,15 @@
   - Đánh giá cửa hàng:
     - Hiển thị số sao đã đánh giá cho cửa hàng
     - Hiển thị số sao của cửa hàng
-### SHOPPINGPAGE: 
-  - Giỏ hàng:
-    - Hiển thị sản phẩm đã thêm vào giỏ hàng theo từng cửa hàng
-    - Tích chọn sản phẩm, số lượng và đặt hàng theo từng cửa hàng
-  - Đơn hàng đã mua:
-    - Hiển thị những đơn hàng đã mua
-    - Thanh toán (nếu chưa thực hiện thanh toán)
-    - Hủy đơn hàng (nếu cửa hàng chưa xác nhận)
-  - Thanh toán đơn hàng:
-    - Hiển thị Mã Qr thanh toán và gửi ảnh thanh toán
-    - Hiển thị cửa hàng, những sản phẩm và số tiền của đơn hàng này
 ### SETTINGSPAGE: 
   - Chỉnh sửa thông tin
   - Tạo sản phẩm
   - Tạo bài viết
   - Hiển thị Bill
-  - General (done)
-  - Bill (done)
-  - Product(done- có thể chỉnh lại chút ui)
-  - Statistics(có thống kê về doanh số bán được theo tháng trong năm, đang làm thêm về sản phẩm)
+  - General
+  - Product
   - Post (Chỉnh lại giao diện thêm và chỉnh bài viết cho giống giao diện khi mà bài viết được hiện thị)
-### CHAT: 
+### CHAT: (?)
   - Chỉ có người chia sẻ mới có thể nhắn với người quản lí
   - Khi người dùng nhấn vào phần chat trong cửa hàng thì nó sẽ ra phần chat của người đó và người quản lí, còn ấn vào cái chat nổi nằm phía dưới sẽ hiện ra phần chat mặc định của người chia sẻ
   - Đang phát triển thêm chat có kèm hình ảnh (continue)

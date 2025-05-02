@@ -1,6 +1,4 @@
-from django.shortcuts import render
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib import messages
 from unidecode import unidecode
 from django.db.models import Q
@@ -8,9 +6,7 @@ from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth.models import User
 from .models import *
-from .forms import *
 
 from func.func import *
 from django.http import JsonResponse

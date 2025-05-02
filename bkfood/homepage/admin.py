@@ -27,8 +27,8 @@ admin.site.register(Account, AccountAdmin)
 admin.site.register(Sharer, SharerAdmin)
 admin.site.register(Manager, ManagerAdmin)
 admin.site.register(Product)
-admin.site.register(Bill, BillAmin)
-admin.site.register(Order)
+admin.site.register(Bill, BillAmin) # !!!!!!!!!!!!!
+admin.site.register(Order) # !!!!!!!!!
 admin.site.register(Post, PostAdmin)
 admin.site.register(Image)
 admin.site.register(Comment, CommentAdmin)
