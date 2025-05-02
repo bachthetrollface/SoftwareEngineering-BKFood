@@ -134,7 +134,7 @@ class Product(models.Model):
     type = models.CharField(max_length=20, choices=TYPES)
     price = models.IntegerField(default=0)
     img = models.ImageField(upload_to=img_path_product, default='default.jpg')
-    describe = models.TextField(null=True)
+    description = models.TextField(null=True, blank=True)
     like = models.IntegerField(default=0)
     dislike = models.IntegerField(default=0)
     time = models.DateTimeField(default=timezone.datetime.now())

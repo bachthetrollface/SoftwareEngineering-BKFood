@@ -43,13 +43,13 @@ class CreateProduct(View):
         else:
             user = Manager.objects.get(account = acc)
             newProduct = Product.objects.create(provider = user)
-            form_product = ProductForm(request.POST, request.FILES, instance= newProduct)
+            form_product = ProductForm(request.POST, request.FILES, instance=newProduct)
             if form_product.is_valid():
-                if form_product.cleaned_data['img'].name == 'default.jpg':
-                    messages.error(request, "Please provide a picture for the dish!")
-                    newProduct.delete()
-                    return redirect('settingspage:product')
-                product = form_product.save(commit= False)
+                # if form_product.cleaned_data['img'].name == 'default.jpg':
+                #     messages.error(request, "Please provide a picture for the dish!")
+                #     newProduct.delete()
+                #     return redirect('settingspage:product')
+                product = form_product.save(commit=False)
                 product.save()
                 messages.success(request, "Dish added successfully!")
             else:
@@ -226,7 +226,7 @@ def editPost(request, postId):
         post.address = request.POST.get('address_post')
         post.city, post.district, post.ward = getArea(city_id, district_id, ward_id)
         post.save()
-        return redirect('settingspage:testPostPage')
+        return redirect('settingspage:postPage')
     
 def deleteImagePost(request, postId, imageId):
     try:
@@ -234,11 +234,11 @@ def deleteImagePost(request, postId, imageId):
         image.isDelete = True
         image.save()
         # JsonResponse()
-        return HttpResponseRedirect(reverse('settingspage:testEditPost', args=[postId]))
+        return HttpResponseRedirect(reverse('settingspage:editPost', args=[postId]))
     except:
         messages.error(request, 'Error')
         # JsonResponse()
-        return HttpResponseRedirect(reverse('settingspage:testEditPost', args=[postId]))
+        return HttpResponseRedirect(reverse('settingspage:editPost', args=[postId]))
 
 
 def recoverDelete(request, postId):
@@ -249,7 +249,7 @@ def recoverDelete(request, postId):
     for i in img : 
         i.isDelete = False
         i.save()
-    return redirect('settingspage:testPostPage')
+    return redirect('settingspage:postPage')
 
 def createPost(request):
     acc = Account.objects.get(user_ptr=request.user)
@@ -273,7 +273,7 @@ def createPost(request):
         post.city, post.district, post.ward = getArea(city_id, district_id, ward_id)
 
         post.save()
-        return redirect('settingspage:testPostPage')
+        return redirect('settingspage:postPage')
     else:
         context = {
             'acc': acc,
