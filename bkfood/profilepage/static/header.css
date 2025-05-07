@@ -95,6 +95,7 @@ h2 {
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
+    color: #ffffff;
 }
 .header .right .subnav{
     display: none;
@@ -116,9 +117,8 @@ h2 {
     text-align: left;
 }
 .header .right a:hover {
-    /* background-color: #eee; */
+    color: #ffbb77;
     border-radius: 15px;
-    /* color: black; */
 }
 .header .right .subnav a:hover {
     background-color: #ddd;

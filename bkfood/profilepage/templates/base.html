@@ -33,22 +33,13 @@
             
         <div class="right">
             <div id="-box-nav">
-                <a href="{% url 'postspage:posts' %}" id="community"><i class="fa fa-fw fa-users"></i>Khám phá</a>
+                <a href="{% url 'postspage:posts' %}" id="community"><i class="fa fa-fw fa-users"></i>Discover</a>
                 <div class="subnav">
-                    <a href="{% url 'postspage:restaurants' %}">Cửa hàng</a>
-                    <a href="{% url 'postspage:posts' %}">Bài chia sẻ</a>
+                    <a href="{% url 'postspage:restaurants' %}">Diners</a>
+                    <a href="{% url 'postspage:posts' %}">Posts</a>
                 </div>
             </div>
-            {% comment %} {% if acc.role == 'sharer' %}
-            <div class="setting_icon">
-                <a href="{% url 'shoppingcart:shoppingCart'  %}" class="setting">
-                    <div >
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    <span>Cart</span>
-                    </div>
-                </a>
-            </div>
-            {% endif %} {% endcomment %}
+
             <div class="setting_icon">
                 <a href="{% url 'settingspage:settingsPage' %}" class="setting">
                     <div >
@@ -278,5 +269,6 @@
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="{% static 'header_logged.js' %}"></script>
 </body>
 </html>

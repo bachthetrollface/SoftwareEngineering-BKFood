@@ -90,6 +90,11 @@ h2 {
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
+    color: #ffffff;
+}
+.header .right a:hover {
+    color: #ffbb77;
+    border-radius: 15px;
 }
 .header .right .subnav{
     display: none;
@@ -115,12 +120,6 @@ h2 {
     border-radius: 0px;
     /* color: black; */
 }
-.header .right a:hover {
-    /* background-color: #eee; */
-    border-radius: 15px;
-    /* color: black; */
-}
-
 
 
 .header .right .login{
@@ -192,13 +191,30 @@ h2 {
     transform: translateY(-3px);
     box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
 }
+.header .right #tab_login {
+    background-color: #3aa86c;
+    border: none;
+    cursor: pointer;
+    width: 120px;
+    margin-right: 25px;
+    color: white;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    padding: 12px 20px 10px 20px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.header .right #tab_login:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
 
 /* --------------- signup -------------- */
 .header .right .sign-up-btn {
     background-color: #3aa86c;
     border: none;
     cursor: pointer;
-    width: 200px;
+    width: 120px;
     color: white;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
     padding: 12px 20px 10px 20px;
