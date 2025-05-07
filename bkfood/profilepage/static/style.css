@@ -43,10 +43,7 @@ body {
     height: 31px;
 
 }
-.chat-label span{
 
-}
-/*  Top navbar CSS */
 
 /* Top profile */
 .top-profile {
@@ -116,10 +113,6 @@ body {
 }
 .contact i{
     font-size: 30px;
-}
-
-.address-info{
-
 }
 .address-info a{
     text-decoration: none;
@@ -246,9 +239,7 @@ body {
 .price{
     margin: auto 0;
 }
-.product.price{
 
-}
 .buy{
     margin: 5px;
 }
@@ -286,13 +277,7 @@ body {
     margin: 0 5px;
     display: inline;
 }
-.top-contents-right{
 
-}
-/* List posts */
-.list-contents{
-
-}
 .posts{
     margin: 20px 10px;
     max-height: 900px;
@@ -323,19 +308,11 @@ body {
 .top-posts .name h4{
     margin: 0;
 }
-.top-posts .time{
-
-}
-.top-posts .right{
-
-}
 
 .content-post{
     width: 100%;
 }
-.content-post .text{
 
-}
 .content-post .images{
     width: 99%;
     height: 500px;
@@ -417,22 +394,14 @@ body {
 /* Footer */
 
 .footer{
+    margin: 50px auto 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-  }
-
-  .footer {
-    display: flex;
-    background: #333;
-    justify-content: flex-end;
-    align-items: flex-end;
-    min-height: 100vh;
-  }
-
-  .footer {
-    margin: 200px auto 0;
-    position: relative;
+}
+  
+.footer {
+    position: static;
     width: 100%;
     background: #dd4444;
     min-height: 100px;
@@ -441,35 +410,33 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
+}
 
-  .social-icon,
-  .footer .menu{
+.social-icon, .footer .menu{
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px 0;
     flex-wrap: wrap;
-  }
+}
 
-  .social-icon__item,
-  .menu__item {
+.social-icon__item, .menu__item {
     list-style: none;
-  }
+}
 
-  .social-icon__link {
+.social-icon__link {
     font-size: 2rem;
     color: #fff;
     margin: 0 10px;
     display: inline-block;
     transition: 0.5s;
-  }
-  .social-icon__link:hover {
+}
+.social-icon__link:hover {
     transform: translateY(-10px);
-  }
+}
 
-  .menu__link {
+.menu__link {
     font-size: 1.2rem;
     color: #fff;
     margin: 0 10px;
@@ -478,7 +445,7 @@ body {
     text-decoration: none;
     opacity: 0.75;
     font-weight: 300;
-  }
+}
 
   .menu__link:hover {
     opacity: 1;

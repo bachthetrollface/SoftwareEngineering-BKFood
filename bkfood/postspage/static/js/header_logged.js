@@ -11,18 +11,16 @@ window.onclick = function(event) {
   }
 }
 
-let check_com = true;
 community.addEventListener("mouseover", () => {
-  check_com = !check_com;
-  if(check_com)
-    hiddenElement.style.display = "block";
-  else
-    hiddenElement.style.display = "none";
+  hiddenElement.style.display = "block";
+});
+hiddenElement.addEventListener("mouseover", () => {
+  hiddenElement.style.display = "block";
 });
 
-// community.addEventListener("mouseout", () => {
-//   hiddenElement.style.display = "none";
-// });
-// hiddenElement.addEventListener("mouseout", () => {
-//   hiddenElement.style.display = "none";
-// });
+community.addEventListener("mouseout", () => {
+  hiddenElement.style.display = "none";
+});
+hiddenElement.addEventListener("mouseout", () => {
+  hiddenElement.style.display = "none";
+});

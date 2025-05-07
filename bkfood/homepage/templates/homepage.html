@@ -1,26 +1,14 @@
-{% extends "main.html" %}
+{% extends "layout_homepage.html" %}
 {% load static %}
 
-{% comment %} block của avatar trên header {% endcomment %}
 {% block info_user%}
 <div id="-box-nav">
-    <a href="{% url 'postspage:postsPage' %}" id="community"><i class="fa fa-fw fa-users"></i>Discover</a>
+    <a href="{% url 'postspage:posts' %}" id="community"><i class="fa fa-fw fa-users"></i>Discover</a>
     <div class="subnav">
         <a href="{% url 'postspage:restaurants' %}">Diners</a>
         <a href="{% url 'postspage:posts' %}">Posts</a>
     </div>
 </div>
-
-{% comment %} {% if acc.role == 'sharer' %}
-<div class="setting_icon">
-    <a href="{% url 'shoppingcart:shoppingCart'  %}" class="setting">
-        <div >
-            <i class="fa-solid fa-cart-shopping"></i>
-        <span>Cart</span>
-        </div>
-    </a>
-</div>
-{% endif %} {% endcomment %}
 
 <div class="setting_icon">
     <a href="{% url 'settingspage:settingsPage' %}" class="setting">
@@ -206,9 +194,6 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="cost">
-                        <button onclick = "addToCart({{item.id}})">{{item.price}} VND</button>
-                    </div>
                 </div>
                 {% endfor %}
             </div>
@@ -224,10 +209,10 @@
                 </div>
                 <div class="search">
                     <form action="#TimKiem">
-                    <label for="choices">Phân loại tìm kiếm:</label>
+                    <label for="choices">Filter:</label>
                     <select id="choices" name="type">
-                        <option value="shop">Cửa hàng</option>
-                        <option value="product">Sản phẩm</option>
+                        <option value="shop">Shop</option>
+                        <option value="product">Product</option>
                         <!-- Thêm các option khác nếu cần -->
                     </select>
                     <input id="searchKey" type="text" placeholder="Type something..." name="search">
@@ -237,22 +222,22 @@
                     <div class="searchby">
                         <br>
                         <div class="form-group">
-                            <label for="city">Khu vực:</label>
+                            <label for="city">Location:</label>
                             <select class="form-select form-select-sm mb-3" id="city" name="city" aria-label=".form-select-sm">
-                            <option value="all" selected>Chọn tỉnh thành</option>           
+                            <option value="all" selected>Choose your city</option>           
                             </select>
                             <br>      
                             <select class="form-select form-select-sm mb-3" id="district" name="district" aria-label=".form-select-sm">
-                            <option value="all" selected>Chọn quận huyện</option>
+                            <option value="all" selected>Choose your district</option>
                             </select>
                             
                             <select class="form-select form-select-sm" id="ward" name="ward" aria-label=".form-select-sm">
-                            <option value="all" selected>Chọn phường xã</option>
+                            <option value="all" selected>Choose your ward</option>
                             </select>
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="t_open">Khoảng thời gian:</label>
+                            <label for="t_open">Time:</label>
                             <input class="time"
                                 type="time"
                                 name="t_open"
@@ -309,7 +294,7 @@
                         showProduct(response.dataProduct, containerSearch);
                         lengthData = response.dataProduct.length;
                     }
-                    if(lengthData === 0) alert("Không tìm kiếm được gì!!");
+                    if(lengthData === 0) alert("No results!");
                 },
                 error: function(error) {
                     console.log(error);
@@ -326,7 +311,7 @@
                         <div class="info" style="padding-left: 10px;">
                             <div class="text">
                                 <h3>${shop.name}</h3>
-                                <p>Đánh giá: ${shop.avgStar}/5 <span><img class="search_imgstar" src="{% static 'images/star.png' %}" alt=""></span></p>
+                                <p>Rating: ${shop.avgStar}/5 <span><img class="search_imgstar" src="{% static 'images/star.png' %}" alt=""></span></p>
                                 <p>${shop.district}-${shop.ward}</p>
                             </div>
     
@@ -334,7 +319,7 @@
                         <hr>
                         <div class="cost">
                             <a href="/profile/${shop.id}/">
-                                <button>Tới cửa hàng</button>
+                                <button>To the diner</button>
                             </a>
                         </div>
                     </div>
@@ -360,9 +345,6 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="cost">
-                        <button onclick="addToCart(${product.id})">${product.price} VND</button>
-                    </div>
                 </div>
                 `;
                 containerSearch.innerHTML += productHTML;
@@ -411,7 +393,7 @@
                         showProduct(response.dataProduct, containerSearch);
                         lengthData = response.dataProduct.length;
                     }
-                    if(lengthData === 0) alert("Không tìm kiếm được gì!!");
+                    if(lengthData === 0) alert("No results!");
                 },
                 error: function(error) {
                     console.log(error);
@@ -419,24 +401,5 @@
             });
         }
     </script>
-    <script>
-        function addToCart(itemId){
-            $.ajax({
-                url: `/shoppingcart/addToCart/`,
-                type: `POST`,
-                data: {
-                    'itemId': itemId,
-                },
-                success: function(response) {
-                    alert("Đã thêm vào giỏ hàng");
-                },
-                error: function(error) {
-                    console.log(error);
-                }
-            });
-        }
-    </script>
-        <script src="{% static 'js/header_logged.js' %}"></script>
+    <script src="{% static 'js/header_logged.js' %}"></script>
 {% endblock feature %}
-
-

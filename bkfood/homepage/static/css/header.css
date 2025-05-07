@@ -110,16 +110,17 @@ h2 {
     font-family: Arial, Helvetica, sans-serif;
     text-align: left;
 }
-.header .right a:hover {
-    /* background-color: #eee; */
-    border-radius: 15px;
-    /* color: black; */
-}
 .header .right .subnav a:hover {
     background-color: #ddd;
     border-radius: 0px;
     /* color: black; */
 }
+.header .right a:hover {
+    /* background-color: #eee; */
+    border-radius: 15px;
+    /* color: black; */
+}
+
 
 
 .header .right .login{

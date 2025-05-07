@@ -1,8 +1,8 @@
-{% extends "layout.html" %}
+{% extends "layout_postspage.html" %}
 {% load static %}
 
 {% block css %}
-{% comment %} <link rel="stylesheet" href="{% static 'css/posts.css'%}"> {% endcomment %}
+<link rel="stylesheet" href="{% static 'css/posts.css'%}">
 {% endblock css %}
 
 {% block title %}
@@ -49,7 +49,7 @@
                     <div class="post-actions">
                         <!-- LIKE -->
                         {% if item.userLike %}
-                        <button class="_{{item.post.id}}_btnLike" value="true" onclick="likeAction(event, {{item.post.id}})" style="background-color: #f00;"> 
+                        <button class="_{{item.post.id}}_btnLike" value="true" onclick="likeAction(event, {{item.post.id}})" style="background-color: #0f0;"> 
                         {% else %}
                         <button class="_{{item.post.id}}_btnLike" value="false" onclick="likeAction(event, {{item.post.id}})"> 
                         {% endif %}
@@ -106,7 +106,7 @@
             btnLikeElements.forEach(function(btnLike){
                 if( btnLike.value === "false"){
                     btnLike.value = "true";
-                    btnLike.style.backgroundColor = '#f00';
+                    btnLike.style.backgroundColor = '#0f0';
                 }
                 else{
                     btnLike.value = "false";
@@ -233,7 +233,7 @@
                     alert("Comment deleted!")
                 }
                 else{
-                    alert("You cannot delete others' comments!!!")
+                    alert("You cannot delete other people's comments!")
                 }
             },
             error: function(error) {
