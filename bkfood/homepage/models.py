@@ -32,14 +32,6 @@ def imgs_path(instance, filename):
     role = instance.post.account.role
     return os.path.join(role, username , 'posts', post_name, filename)
 
-def img_path_bill(instance, filename):
-    provider_name = str(instance.provider)
-    acc_name = str(instance.acc)
-    time = instance.time
-    ext = filename.split('.')[-1]
-    new_filename = f"{time}_{acc_name}.{ext}"
-    return os.path.join('manager', provider_name, 'bills', new_filename)
-
 def img_path_product(instance, filename):
     username = instance.provider.account.username
     product_name = instance.name
@@ -121,10 +113,10 @@ class Manager(models.Model):
 
 class Product(models.Model):
     TYPES = [
-        ('drink', 'Đồ uống'),
-        ('food', 'Đồ ăn'),
-        ('entertainment', 'Giải trí'),
-        ('service', 'Dịch vụ khác'),
+        ('beverages', 'Beverages'),
+        ('food', 'Food'),
+        ('entertainment', 'Entertainment'),
+        ('services', 'Services'),
     ]
     provider = models.ForeignKey(Manager, on_delete=models.CASCADE)
 
@@ -148,28 +140,6 @@ class Product(models.Model):
             self.name_stripped = ' '.join(words)
         super().save(*args, **kwargs)
 
-
-class Bill(models.Model):
-    STATUS = [
-
-    ]
-    acc = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True, verbose_name='Người mua')
-    provider = models.ForeignKey(Manager, on_delete=models.SET_NULL, null=True)
-    time = models.DateTimeField(default=timezone.datetime.now())
-    price = models.IntegerField(default=0)
-    img = models.ImageField(upload_to=img_path_bill, null=True, blank=True)
-    status = models.CharField(max_length=200, choices=STATUS, default='Waiting')
-
-    def __str__(self):
-        return f"{self.provider}_{self.acc}_" + datetime.strftime(self.time, "%Y-%m-%d %H:%M:%S")
-
-class Order(models.Model):
-    bill = models.ForeignKey(Bill, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
-    quantity = models.IntegerField(default=0)
-
-    def __str__(self):
-        return f"{self.product}_{self.bill}"
 
 
 class Post(models.Model):
