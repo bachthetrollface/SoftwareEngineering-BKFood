@@ -6,7 +6,7 @@
         if( button.value === "false"){
             newLike = like + 1;
             button.value = "true";
-            button.style.backgroundColor = '#f00';
+            button.style.backgroundColor = '#0f0';
         }
         else{
             newLike = like - 1;
