@@ -59,14 +59,15 @@ class CreateProduct(View):
 
 
 #Xóa Sản phẩm
+@csrf_exempt
 def deleteProduct(request, product_id):
     try:
-        product = Product.objects.get(pk = product_id)
-        product.delete()
-        messages.success(request, "Đã xóa sản phẩm")
+        if request.method == 'POST':
+            product = Product.objects.get(pk = product_id)
+            product.delete()
+            return JsonResponse({'success': True})
     except:
-        messages.error(request, "Thao tác lỗi")
-    return redirect('settingspage:product')
+        return JsonResponse({'success': 'error'})
 
 # Sửa sản phẩm
 class editProduct(View):
@@ -285,138 +286,10 @@ def createPost(request):
 
 @csrf_exempt
 def deletePost(request, postId):
-    if request.method == 'POST':
-        post = Post.objects.get(id=postId)
-        post.delete()
-        # print("deleted post")
-        return JsonResponse({'success': True})
-
-
-#Post Page
-# def postPage(request):
-#     acc = Account.objects.get(user_ptr=request.user)
-#     user = Sharer.objects.get(account= acc) if acc.role == 'sharer' else Manager.objects.get(account= acc)
-#     context = {
-#         'acc' : acc,
-#         'user' : user,
-#     }
-#     return render(request, 'post.html', context)
-
-# def deletePost(request, postId):
-#     post = Post.objects.get(id = postId)
-#     try:
-#         post.delete()
-#         messages.success(request, 'Xóa bài viết thành công')
-#         return redirect('settingspage:postPage')
-#     except:
-#         messages.error(request, 'Xóa bài viết thất bại')
-#         return redirect('settingspage:postPage')
-
-# def changePost(request, postId):
-#     if request.method == 'GET':
-#         acc = Account.objects.get(user_ptr=request.user)
-#         user = Sharer.objects.get(account= acc) if acc.role == 'sharer' else Manager.objects.get(account= acc)
-#         post = Post.objects.get(id = postId)
-#         img = post.image_set.all()
-#         form_post = CreatePostForm(instance=post)
-#         form_img = []
-#         a = 0
-#         for i in img :
-#             a = a + 1
-#             form_img.append(CreateImgForm(instance=i, prefix=f'form-{a}'))
-#         context = {
-#             'acc' : acc,
-#             'user' : user,
-#             'form_post' : form_post,
-#             'form_img' : form_img,
-#             'post': post,
-#             'img' : img,
-#         }
-#         return render(request, 'add_post.html', context)
-#     elif request.method == 'POST':
-#         post = Post.objects.get(id = postId)
-#         img = post.image_set.all()
-#         form_post = CreatePostForm(request.POST, request.FILES, instance=post)
-#         form_img = []
-#         a = 0
-#         for i in img :
-#             a = a+1
-#             if i.isDelete == True :
-#                 i.delete()
-#             else :
-#                 form_img.append(CreateImgForm(request.POST, request.FILES, prefix=f'form-{a}', instance=i))
-#         if form_post.is_valid :
-#             for form in form_img :
-#                 if not form.is_valid :
-#                     messages.error(request, 'Error')
-#                     return redirect('settingspage:postPage')
-
-#             newFormPost = form_post.save(commit=False)
-#             newFormPost.save()
-#             for form in form_img :
-#                 newImg = form.save(commit=False)
-#                 newImg.save()
-
-#             images = request.FILES.getlist('images')
-#             for image in images :
-#                 img = Image.objects.create(post = post, img = image)
-#                 img.save()
-
-#             return redirect('settingspage:postPage')
-#         else :
-#             messages.error(request, 'Error')
-#             return redirect('settingspage:postPage')
-
-
-
-# def addPost(request):
-#     acc = Account.objects.get(user_ptr=request.user)
-#     user = Sharer.objects.get(account= acc) if acc.role == 'sharer' else Manager.objects.get(account= acc)
-#     if request.method == 'POST':
-#         post = Post.objects.create(account = acc)
-#         form_post = CreatePostForm(request.POST, request.FILES, instance=post)
-#         if form_post.is_valid :
-#             # try:
-#             newPost = form_post.save(commit=False)
-#             newPost.save()
-#             images = request.FILES.getlist('images')
-#             for image in images :
-#                 img = Image.objects.create(post = post, img = image)
-#                 img.save()
-
-#             messages.success(request, 'Success')
-#             return redirect('settingspage:postPage')
-#             # except:
-#             #     messages.error(request, 'Error')
-#             #     return redirect('settingspage:postPage')
-#         else :
-#             post.delete()
-#             messages.error(request, 'Error')
-#             return redirect('settingspage:postPage')
-
-
-#     form_post = CreatePostForm()
-#     context = {
-#         'form_post': form_post,
-#         'acc': acc,
-#     }
-#     return render(request, 'add_post.html', context)
-
-# def deleteImagePost(request, postId, imageId):
-#     try:
-#         image = Image.objects.get(id = imageId)
-#         image.isDelete = True
-#         image.save()
-#         return HttpResponseRedirect(reverse('settingspage:changePost', args=[postId]))
-#     except:
-#         messages.error(request, 'Error')
-#         return HttpResponseRedirect(reverse('settingspage:changePost', args=[postId]))
-
-# def unDelete(request, postId, imageId):
-#     try:
-#         image = Image.objects.get(id = imageId)
-#         image.isDelete = False
-#         image.save()
-#         return HttpResponseRedirect(reverse('settingspage:changePost', args=[postId]))
-#     except:
-#         return HttpResponseRedirect(reverse('settingspage:changePost', args=[postId]))
+    try:
+        if request.method == 'POST':
+            post = Post.objects.get(id=postId)
+            post.delete()
+            return JsonResponse({'success': True})
+    except:
+        return JsonResponse({'success': 'error'})

@@ -192,7 +192,7 @@ h2 {
     box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
 }
 .header .right #tab_login {
-    background-color: #3aa86c;
+    background-color: #ffbb77;
     border: none;
     cursor: pointer;
     width: 120px;
@@ -211,7 +211,7 @@ h2 {
 
 /* --------------- signup -------------- */
 .header .right .sign-up-btn {
-    background-color: #3aa86c;
+    background-color: #ffbb77;
     border: none;
     cursor: pointer;
     width: 120px;

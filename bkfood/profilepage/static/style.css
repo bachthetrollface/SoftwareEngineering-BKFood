@@ -513,3 +513,9 @@ body {
       background-positon-x: 0px;
     }
   }
+
+  .footer ul {
+  list-style-type: none;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0px 40px 40px 40px;
+}
