@@ -173,7 +173,7 @@ class Post(models.Model):
 
 
 class Image(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.SET_NULL, null=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
     img = models.ImageField(upload_to=imgs_path)
     isDelete = models.BooleanField(default=False)
     def __str__(self):
