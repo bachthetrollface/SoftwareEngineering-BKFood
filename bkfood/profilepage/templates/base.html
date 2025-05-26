@@ -52,7 +52,7 @@
                 <a href="/logout/" class="setting">
                     <div>
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    <span>Logout</span>
+                    <span>Log Out</span>
                     </div>
                 </a>
             </div>
@@ -73,41 +73,7 @@
     </div>
 
 
-    <!--Top navbar -->
-    <!--<div class="topnav">
-        <a href="{% url 'homepage:homePage' %}" class="logo-home">
-            <div class="logo">
 
-            </div>
-            <div class="app-name">
-                <h4>BKvivu</h4>
-                <span class="">Nền tảng chia sẻ dịch vụ hàng đầu</span>
-            </div>
-        </a>
-        <div class="option">
-            <a href="{% url 'profilepage:profilePage' user.account.id%}" class="my-profile">
-                <div>
-                <i class="fa-solid fa-user"></i>
-                <span>My Profile</span>
-                </div>
-            </a>
-
-            <a href="{% url 'settingspage:settingsPage' %}" class="setting">
-                <div >
-                <i class="fa-solid fa-gear"></i>
-                <span>Settings</span>
-                </div>
-            </a>
-
-            <a href="{% url 'profilepage:logoutPage'%}" class="log-out">
-                <div>
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>Log out</span>
-                </div>
-            </a>
-        </div>
-    </div>
--->
     <!-- Info profile -->
     <div class="top-profile" {% if target_user.account.role == 'sharer' %}style="background-color: white;"{% endif %}>
         <div class="avatar-name">
@@ -189,7 +155,7 @@
                         <div class="post-actions">
                             <!-- LIKE -->
                             {% if posts in listPostsLike %}
-                            <button value="true" onclick="likeAction(event, {{posts.id}})" style="background-color: #f00;">
+                            <button value="true" onclick="likeAction(event, {{posts.id}})" style="background-color: #0f0;">
                             {% else %}
                             <button value="false" onclick="likeAction(event, {{posts.id}})">
                             {% endif %}
@@ -218,14 +184,10 @@
                     <div class="close-comment">
                         <button id="cancelButton" onclick="cancelComment()"><i class="fa-solid fa-rectangle-xmark"></i></button>
                     </div>
-                  <section class="gradient-custom">
                     <div class="container-comment" style="display: block;">
                         <h4>Comments</h4>
-                        <div class="col" id="allCommentOfPostId">
-                            {% comment %} List Comments {% endcomment %}
-                        </div>
+                        <div class="col" id="allCommentOfPostId"></div>
                     </div>
-                  </section>
                 </div>
               </div>
             {% else %}

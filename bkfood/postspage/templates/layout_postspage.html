@@ -38,10 +38,10 @@
                 </div>
             </div>
             <div class="setting_icon">
-                <a href="{% url 'settingspage:settingsPage' %}" class="setting">
-                    <div >
-                    <i class="fa-solid fa-gear"></i>
-                    <span>Settings</span>
+                <a href="{% url 'profilepage:logoutPage' %}" class="setting">
+                    <div>
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Log Out</span>
                     </div>
                 </a>
             </div>
@@ -56,8 +56,9 @@
     <div class="maincontainer">
         {% comment %} ----------Sidebar----------- {% endcomment %}
         <div class="sidebar">
+            <a href="{% url 'postspage:restaurants' %}"><i class="fa-solid fa-shop"> Diners</i></a>
             <a href="{% url 'postspage:posts' %}"><i class="fa-solid fa-pager"> Posts</i></a>
-            <a href="{% url 'postspage:restaurants' %}"><i class="fa-solid fa-shop"> Services</i></a>
+            {% comment %} <a href="{% url 'settingspage:createPost' %}"><i class="fa-solid fa-shop"> Write New Post</i></a> {% endcomment %}
         </div>
         
         {% comment %} ----------content----------- {% endcomment %}

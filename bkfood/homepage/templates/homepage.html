@@ -11,10 +11,10 @@
 </div>
 
 <div class="setting_icon">
-    <a href="{% url 'settingspage:settingsPage' %}" class="setting">
-        <div >
-        <i class="fa-solid fa-gear"></i>
-        <span>Settings</span>
+    <a href="{% url 'profilepage:logoutPage' %}" class="setting">
+        <div>
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>Log Out</span>
         </div>
     </a>
 </div>
@@ -103,7 +103,9 @@
                             <h3>Time: {{item.post.time}}</h3>
                             <p> 
                                 {% if item.post.provider %}
-                                    Is at: <a href="{% url 'profilepage:profilePage' item.post.provider.account.id%}"><strong>{{item.post.provider.name}}</strong></a>
+                                    Is at: <a href="{% url 'profilepage:profilePage' item.post.provider.account.id%}">
+                                        <strong>{{item.post.provider.name}}</strong>
+                                    </a>
                                 {% else %}
                                     {% if item.post.ward and item.post.district and item.post.city%}
                                         <i class="fa-solid fa-location-dot"></i>
@@ -127,14 +129,17 @@
 
                         <div class="post-actions">
                             {% if item.userLike %}
-                            <button value="true" onclick="likeAction(event, {{item.post.id}})" style="background-color: #f00;"> 
+                            <button value="true" onclick="likeAction(event, {{item.post.id}})" style="background-color: #0f0;"> 
                             {% else %}
                             <button value="false" onclick="likeAction(event, {{item.post.id}})"> 
                             {% endif %}
                                 <span id="{{item.post.id}}_like">{{item.post.like}} </span>
                                 <i class="far fa-thumbs-up"></i> 
                             </button>
-                            <button onclick="showComment(event, {{item.post.id}})">{{item.post.commentNum}} <i class="far fa-comment"></i></button>
+                            <button onclick="showComment(event, {{item.post.id}})">
+                                {{item.post.commentNum}} 
+                                <i class="far fa-comment"></i>
+                            </button>
                         </div>
                     </li>
                     {% endfor %}

@@ -5,7 +5,6 @@
 
   button{
     background-color: #fff;
-    border: none;
   }
 
 
@@ -136,13 +135,6 @@
     justify-content: center;
 }
 
-.gradient-custom {
-    padding: 48px 70px;
-    background: #4facfe;
-    background: -webkit-linear-gradient(to right, #00f2fe, #4facfe);
-    background: linear-gradient(to right, #00f2fe, #4facfe);
-}
-
 .containerPost{
     display:none;
     z-index: 1;
@@ -159,7 +151,6 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
 }
 
 

@@ -5,7 +5,8 @@
 
 button{
   background-color: #fff;
-  border: none;
+  padding-block: 1px;
+  padding-inline: 6px;
 }
 
 button:hover{
