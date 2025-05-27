@@ -248,7 +248,7 @@ function showDetailPosts(event, postId ){
             `;
             
             if(detailPost.userLike){
-                div1 += `<button class="_${postId}_btnLike" value="true" onclick="likeAction(event, ${postId})" style="background-color: #f00;">`; 
+                div1 += `<button class="_${postId}_btnLike" value="true" onclick="likeAction(event, ${postId})" style="background-color: #0f0;">`; 
             }
             else{
                 div1 += `<button class="_${postId}_btnLike" value="false" onclick="likeAction(event, ${postId})"> `;

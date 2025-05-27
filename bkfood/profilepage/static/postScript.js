@@ -88,7 +88,7 @@
 
     function deleleCmt(event, commentId){ // xóa comment của mình thoi-----------
         // Gửi yêu cầu AJAX đến URL của Django view xử lý xóa dữ liệu
-        var userChoice = window.confirm("Bạn có chắc muốn xóa bình luận không?");
+        var userChoice = window.confirm("Are you sure you want to delete this comment?");
 
         // Kiểm tra kết quả
         if (userChoice) {
@@ -103,10 +103,10 @@
                     // Giảm _commentNum
                     const cmtNum = document.getElementById(response.postId + "_commentNum");
                     cmtNum.innerText = parseInt(cmtNum.innerText, 10) - 1
-                    alert("Xóa bình luận của bạn thành công")
+                    alert("Comment deleted!")
                 }
                 else{
-                    alert("Không thể xóa bình luận của người khác!!!")
+                    alert("You cannot delete other people's comments!")
                 }
             },
             error: function(error) {
@@ -191,9 +191,9 @@
     }
     function cancelDetailPost(){
         var containerComment = document.getElementById('containerPost');
-        containerComment.style.display = 'none'; // hoặc 'block' tùy thuộc vào yêu cầu của bạn
+        containerComment.style.display = 'none';
     }
   function cancelComment(){
     var containerComment = document.getElementById('containerComment');
-    containerComment.style.display = 'none'; // hoặc 'block' tùy thuộc vào yêu cầu của bạn
+    containerComment.style.display = 'none';
   }
