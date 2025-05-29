@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Settings</title>
+    <title>BKFood - Settings</title>
     <link rel = "icon" href ="{% static 'images/logo.png' %}" type = "image/x-icon">
+    <link rel="stylesheet" href="{% static 'header.css'%}">
     <link rel="stylesheet" href="{% static 'tabbar.css'%}">
     <link rel="stylesheet" href="{% static 'list.css'%}">
     <link rel="stylesheet" href="{% static 'container.css'%}">
@@ -15,6 +16,40 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body>
+    <div class="header">
+        <div class="left">
+            <a href="{% url 'homepage:homePage' %}" class="logo">
+                <img src="{% static 'images/logo.png' %}"  alt="logo">
+                <div class = "description">
+                    <h2>BKFood</h2>
+                    <p>Dining Experience Sharing </p>
+                    <p>and Recommendation Platform</p>
+                </div> 
+            </a>
+        </div>
+            
+        <div class="right">
+            <div id="-box-nav">
+                <a href="{% url 'postspage:posts' %}" id="community"><i class="fa fa-fw fa-users"></i>Discover</a>
+                <div class="subnav">
+                    <a href="{% url 'postspage:restaurants' %}">Diners</a>
+                    <a href="{% url 'postspage:posts' %}">Posts</a>
+                </div>
+            </div>
+            <div class="setting_icon">
+                <a href="{% url 'profilepage:logoutPage' %}" class="setting">
+                    <div>
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Log Out</span>
+                    </div>
+                </a>
+            </div>
+            <a href="{% url 'profilepage:profilePage' acc.id%}" class="logo-user" style="width:auto;">
+                <img class="img-user" src = "{{user.avatar.url}}"/>
+            </a>
+            
+        </div>
+    </div>
     <header>
         <a href="{% url 'profilepage:profilePage' acc.id%}" class="profile_link" style="position:absolute; left:10px; color:white; text-decoration:none; border:2px solid white; padding:5px">
             ← Back to profile
