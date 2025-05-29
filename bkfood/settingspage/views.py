@@ -169,9 +169,11 @@ def generalPage(request):
 # postPage
 def postPage(request):
     acc = Account.objects.get(user_ptr=request.user)
+    user = Sharer.objects.get(account= acc) if acc.role == 'sharer' else Manager.objects.get(account= acc)
     postList = acc.post_set.all()
     context = {
         'acc': acc,
+        'user': user,
         'postList': postList,
     }
     return render(request, 'posts/postList.html', context)
