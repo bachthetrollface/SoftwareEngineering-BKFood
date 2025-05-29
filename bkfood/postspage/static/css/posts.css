@@ -183,3 +183,44 @@ ul {
 .groupInResult i{
   margin-right: 10px;
 }
+
+/* Add product css */
+.add-product:hover{
+    background-color: rgb(91, 175, 147);
+}
+.add-product:active{
+    border-color: aliceblue;
+}
+
+.container-add-product h3{
+    font-size: 18px;
+    margin: auto 5px;
+    text-align: center;
+    display: inline;
+    font-weight: bold;
+}
+.add-product {
+    background-color: aquamarine;
+    border: 2px solid green;
+    border-radius: 20px;
+    text-decoration: none;
+    text-align: center;
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    justify-content: center;
+}
+.container-add-product {
+    padding: 10px 13px;
+    display: flex;
+    width: 170px;
+    height: 30px;
+    margin: auto 0;
+    /* z-index: 1000; */
+    align-items: center;
+    justify-content: center;
+    box-sizing: content-box;
+}
+.container-add-product i{
+margin-right: 5px;
+}

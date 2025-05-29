@@ -1,5 +1,11 @@
 {% extends "settingspage/base.html" %}
 {% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'product.css'%}">
+<link rel="stylesheet" href="{% static 'form.css'%}">
+{% endblock %}
+
 {% block product %}
 
     <div class="product-manager">

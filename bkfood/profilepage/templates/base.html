@@ -40,6 +40,7 @@
                 </div>
             </div>
 
+            {% if target_user.account.id == user.account.id %}
             <div class="setting_icon">
                 <a href="{% url 'settingspage:settingsPage' %}" class="setting">
                     <div >
@@ -48,6 +49,7 @@
                     </div>
                 </a>
             </div>
+            {% endif %}
             <div class="setting_icon">
                 <a href="/logout/" class="setting">
                     <div>
@@ -62,16 +64,6 @@
             
         </div>
     </div>
-    <!-- Chat logo -->
-    <div class="chatbox">
-        <a href="{% url 'profilepage:chatDefault' target_user.account_id %}" class="chat-link">
-            <div class="chat-label">
-                <i class="fa-solid fa-message"></i>
-                <span>Chat</span>
-            </div>
-        </a>
-    </div>
-
 
 
     <!-- Info profile -->
@@ -88,13 +80,6 @@
                     {% endblock rateProfile %}
                 {% endif %}
             </div>
-            {% if target_user.account.role == 'manager' and user.account.role == 'sharer' %}
-            <div>
-                <a href="{% url 'profilepage:chatPage' target_user.account.id target_user.account.id %}">
-                    <i style="font-size: 40px;" class="fas fa-comment-dots"></i>
-                </a>
-            </div>
-            {% endif %}
         </div>
     {% if target_user.account.role == "manager" %}
         {% block infoProfileManager %}
@@ -196,6 +181,13 @@
             <!-- End listpost -->
         </div>
     </div>
+
+    <a href="{% url 'settingspage:createPost' %}" class="add-product">
+        <div class="container-add-product">
+            <i class="fa-solid fa-circle-plus"></i>
+            <h3>Write New Post</h3>
+        </div>
+    </a>
 
     <!-- Footer -->
     <footer class="footer">

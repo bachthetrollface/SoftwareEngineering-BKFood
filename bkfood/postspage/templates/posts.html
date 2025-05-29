@@ -97,6 +97,13 @@
             </div>
         </div>
     </div>
+
+    <a href="{% url 'settingspage:createPost' %}" class="add-product">
+        <div class="container-add-product">
+            <i class="fa-solid fa-circle-plus"></i>
+            <h3>Write New Post</h3>
+        </div>
+    </a>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="{% static 'js/postScript.js' %}"></script>
 {% endblock %}

@@ -1,31 +1,11 @@
+{% extends 'settingspage/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Settings</title>
-    <link rel = "icon" href ="{% static 'images/logo.png' %}" type = "image/x-icon">
-    <link rel="stylesheet" href="{% static 'css_settings/register.css'%}">
-</head>
-<body>
-    <div class="header_fixed">
-        <header class="header_settings">
-            <a href="{% url 'profilepage:profilePage' acc.id%}" class="profile_link" style="position:absolute; left:10px; color:white; text-decoration:none; border:2px solid white; padding:5px">
-                ← Back to profile
-            </a>
-            <h1>Settings</h1>
-        </header>
-    
-        <nav>
-            <a href="{% url 'settingspage:gerenalPage'%}">General</a>
-            {% if acc.role == 'manager' %}
-            <a href="{% url 'settingspage:product'%}">Dishes</a>
-            {% endif %}
-            <a href="{% url 'settingspage:postPage'%}">Posts</a>
-        </nav>
-    </div>
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css_settings/register.css'%}">
+{% endblock %}
+
+{% block general %}
 {% if role == 'sharer' %} <!-- hàm if vai trò để hiển thị -->
 <div class="container">
   <header class="header_container">
@@ -261,6 +241,8 @@
     
   </div>
 {% endif %}
+{% endblock %}
+{% block script %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script>
     var citis = document.getElementById("city");
@@ -339,5 +321,6 @@
       alert("Cập nhật thông tin thành công");
     }
   </script>
-</body>
-</html>
+{% endblock %}
+{% comment %} </body> {% endcomment %}
+{% comment %} </html> {% endcomment %}

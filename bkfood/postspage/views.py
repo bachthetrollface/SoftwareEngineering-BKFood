@@ -66,14 +66,12 @@ def update_likes(request, post_id):
                 account = acc,
                 post = post
             )
-            print("Tạo userlike")
         else:
             userLike = UserLike.objects.get(
                 account = acc,
                 post = post
             )
             userLike.delete()
-            print("Xóa userlike")
         post.like = data['like']
         post.save()
         return JsonResponse({'success': True})

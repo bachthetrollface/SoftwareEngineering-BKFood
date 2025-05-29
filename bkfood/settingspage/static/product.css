@@ -1,7 +1,3 @@
-.product-manager{
-
-}
-
 .list-product{
     border-radius: 20px;
     padding: 15px 20px;
@@ -51,9 +47,6 @@
     border-radius: 20px;
     font-size: 15px;
     margin: 10px 0;
-}
-.product-price{
-
 }
 
 .action-product{
