@@ -255,6 +255,7 @@ def recoverDelete(request, postId):
     return redirect('settingspage:postPage')
 
 def createPost(request):
+    next_url = request.GET.get('next', '/')
     acc = Account.objects.get(user_ptr=request.user)
     user = Sharer.objects.get(account=acc) if acc.role=='sharer' else Manager.objects.get(account=acc)
     if request.method == 'POST':
@@ -276,13 +277,15 @@ def createPost(request):
         post.city, post.district, post.ward = getArea(city_id, district_id, ward_id)
 
         post.save()
-        return redirect('settingspage:postPage')
+        next_url = request.POST.get('next', next_url)
+        return HttpResponseRedirect(next_url)
     else:
         context = {
             'acc': acc,
             'user': user,
             'time' : timezone.datetime.now(),
-            'provider': Manager.objects.all()
+            'provider': Manager.objects.all(),
+            'next': next_url,
         }
         return render(request, 'posts/add_post.html', context)
 

@@ -5,10 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BKFood - Create Post</title>
+    <link rel="stylesheet" href="{% static 'header.css'%}">
     <link rel="stylesheet" href="{% static 'AddPost.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+  <div class="header">
+        <div class="left">
+            <a href="{% url 'homepage:homePage' %}" class="logo">
+                <img src="{% static 'images/logo.png' %}"  alt="logo">
+                <div class = "description">
+                    <h2>BKFood</h2>
+                    <p>Dining Experience Sharing </p>
+                    <p>and Recommendation Platform</p>
+                </div> 
+            </a>
+        </div>
+            
+        <div class="right">
+            <div id="-box-nav">
+                <a href="{% url 'postspage:posts' %}" id="community"><i class="fa fa-fw fa-users"></i>Discover</a>
+                <div class="subnav">
+                    <a href="{% url 'postspage:restaurants' %}">Diners</a>
+                    <a href="{% url 'postspage:posts' %}">Posts</a>
+                </div>
+            </div>
+            <div class="setting_icon">
+                <a href="{% url 'profilepage:logoutPage' %}" class="setting">
+                    <div>
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Log Out</span>
+                    </div>
+                </a>
+            </div>
+            <a href="{% url 'profilepage:profilePage' acc.id%}" class="logo-user" style="width:auto;">
+                <img class="img-user" src = "{{user.avatar.url}}"/>
+            </a>
+            
+        </div>
+    </div>
 <form method="post" action="{% url 'settingspage:createPost' %}" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="maincontainer">
@@ -39,15 +74,16 @@
                     <select class="form-select form-select-sm" id="ward" name="ward" aria-label=".form-select-sm" required>
                     <option value="" selected >Chọn phường xã</option>
                 </select>
-                <h4><input required id="address_post" name="address_post" placeholder="Nhập nhập địa chỉ cụ thể" class="tieude"></h4>
+                <h4><input required id="address_post" name="address_post" placeholder="Nhập địa chỉ cụ thể" class="tieude"></h4>
                 
                 <h3><input required id="title_post" name="title_post" type="text" placeholder="Nhập tiêu đề" class="tieude"></h3>
                 <textarea required id="content_post" name="content_post"  cols="78" rows="15" placeholder="Nhập nội dung vào đây nhé"></textarea>
                 <p>Chọn ảnh:</p>
                 <input type="file" name="images" id="images" multiple>
                 <div class="submit">
-                <button type="submit">Submit</button>
-                <a href="{% url 'settingspage:postPage' %}"><button type="button" id="cancel">Cancel</button></a>
+                  <input name="next" type="hidden" value="{{ next }}"/>
+                  <button type="submit">Submit</button>
+                  <a href="{{next}}"><button type="button" id="cancel">Cancel</button></a>
                 </div>
                 
             
