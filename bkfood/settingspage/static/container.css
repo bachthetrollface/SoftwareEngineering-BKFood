@@ -1,9 +1,7 @@
 .container {
     width: 60%; /* Set the width of the form */
-    padding: 20px;
     margin: 0 auto;
-    border: 1px solid #ddd;
-    background-color: aquamarine;
+    background-color: #f4f4f4;
 }
 .paragraph-container {
     border: 2px solid #ddd; /* Border style */

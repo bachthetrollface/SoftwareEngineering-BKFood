@@ -9,6 +9,7 @@
 
 {% block post%} 
 <h1 style="text-align: center; margin-top: 50px;">Your Posts</h1>
+<div class="item-list">
 <ul>
     {% for post in postList %}
     
@@ -53,8 +54,8 @@
         </div>
     </li>
     {% endfor %}
-
 </ul>
+</div>
 <a href="{% url 'settingspage:createPost' %}?next={{request.path}}" class="add-product">
     <div class="container-add-product">
         <i class="fa-solid fa-circle-plus"></i>

@@ -2,19 +2,19 @@ body{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background: #D5D5AC;
+    background: #f4f4f4;
 }
 
-ul{
+.item-list ul{
     position:relative;
     width: 50%;
     max-height: 500px;
     margin: 0 auto;
     padding: 20px;
     /* transform: translate(-50%,-50%); */
-    background: #fff;
+    background: #f4f4f4;
     border-radius: 10px;
-    box-shadow: 0 15px 50px rgba(0,0,0,.2);
+    /* box-shadow: 0 15px 50px rgba(0,0,0,.2); */
     overflow-y: auto;
 }
 h1{
@@ -24,7 +24,7 @@ h1{
     border-bottom: 1px solid rgba(0,0,0,.2);
 
 }
-ul li{
+.item-list ul li{
     position: relative;
     display: flex;
     list-style: none;
@@ -32,26 +32,26 @@ ul li{
     border-radius:4px ;
     border-bottom: 1px solid rgba(0,0,0,.2);
 }
-ul li:hover{
-    background: #607d8b;
+.item-list ul li:hover{
+    background: #fff;
 }
-ul li .info{
+.item-list ul li .info{
     color: #262626;
     text-decoration: none;
     display: block;
     padding-left:70px ;
 }
-ul li :hover a{
+/* .item-list ul li :hover a{
     color: #fff;
-}
-ul li .date{
+} */
+.item-list ul li .date{
     /* position: absolute;
     top: 7px;
     left: 6px; */
     width: 60px;
     text-align: center;
 }
-ul li .date::before{
+.item-list ul li .date::before{
     content: '';
     /* position: absolute;
     top: 0;
@@ -63,7 +63,7 @@ ul li .date::before{
     z-index: 1;
     border-radius: 5px;
 }
-ul li .date h3{
+.item-list ul li .date h3{
     position: relative;
     z-index: 2;
     margin-top: -6px;
@@ -71,11 +71,11 @@ ul li .date h3{
     color: #f00;
     line-height: 36px;
 }
-ul li .date h3 span{
+.item-list ul li .date h3 span{
     font-size: 36px;
     color: #324d5b;
 }
-ul li .date p {
+.item-list ul li .date p {
     font-size: 18px ;
 
 }
@@ -86,7 +86,7 @@ ul li .date p {
 .info i{
     margin-top: 17px;
 }
-li .info i {
+.item-list li .info i {
     margin-right: 5px; 
     margin-left: 5px;
 }
@@ -133,6 +133,10 @@ color: rgb(63, 63, 63);
 .action-product a {
     margin-left: 10px; /* Khoảng cách giữa các nút */
     padding: 5px; /* Kích thước padding cho các nút */
+}
+
+.action-product a:hover {
+    cursor: pointer;
 }
 
 /* Điều chỉnh vị trí của mục xóa và chỉnh sửa sang phải */

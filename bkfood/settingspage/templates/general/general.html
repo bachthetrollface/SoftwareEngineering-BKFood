@@ -9,10 +9,7 @@
 {% if role == 'sharer' %} <!-- hàm if vai trò để hiển thị -->
 <div class="container">
   <header class="header_container">
-    <h1 id="title" class="text-center"><b>Thông tin với vai trò người chia sẻ</b></h1>
-    <p id="description" class="description text-center">
-      Vui lòng cung cấp cho chúng tôi những thông tin dưới đây!
-    </p>
+    <h1 id="title" class="text-center"><b>Sharer Information</b></h1>
   </header>
   
   <form id="survey-form" method = "POST" enctype="multipart/form-data">
@@ -89,13 +86,11 @@
     </div>
   </form>
 </div>
+
 {% else %} <!-- Nếu với vai trò người quản lý manager-->
 <div class="container">
     <header class="header_container">
-      <h1 id="title" class="text-center"><b>Thông tin người quản lý</b></h1>
-      <p id="description" class="description text-center">
-        Vui lòng cung cấp cho chúng tôi những thông tin dưới đây!
-      </p>
+      <h1 id="title" class="text-center"><b>Manager Information</b></h1>
     </header>
     <form id="survey-form" method = "POST" enctype="multipart/form-data">
         {% csrf_token %}

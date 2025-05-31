@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
 
 :root {
-  --color-white: #f3f3f3;
+  --color-white: #f4f4f4;
   --color-darkblue: #1b1b32;
   --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
   --color-green: #37af65;
@@ -31,13 +31,7 @@ body::before {
   height: 100%;
   width: 100%;
   z-index: -1;
-  background: var(--color-darkblue);
-  background-image: linear-gradient(
-      115deg,
-      rgba(58, 58, 158, 0.8),
-      rgba(136, 136, 206, 0.7)
-    ),
-    url(../images/backgroundRgt.jpg);
+  background: #f4f4f4;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -59,24 +53,7 @@ body::before {
   /* align-items: center; */
 } 
 
-nav {
-  
-  display: flex;
-  justify-content: center;
-  background-color: #444;
-}
 
-nav a {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 20px;
-  display: inline-block;
-  transition: background-color 0.3s;
-}
-
-nav a:hover {
-  background-color: #555;
-}
 
 p {
   font-size: 1.125rem;
@@ -124,8 +101,11 @@ button {
 
 .header_container {
   padding: 0 0.625rem;
-  margin-top: 150px;
   margin-bottom: 1.875rem;
+}
+
+.container .header_container h1, .container .header_container p {
+  color: rgb(63,63,63)
 }
 
 .description {
@@ -188,10 +168,13 @@ form {
   display: block;
   width: 100%;
   padding: 0.75rem;
-  background: var(--color-green);
+  background: #ffbb77;
   color: inherit;
   border-radius: 2px;
   cursor: pointer;
+}
+.submit-button:hover {
+  background: #fa5;
 }
 
 .header .description p{

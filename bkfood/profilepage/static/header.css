@@ -97,6 +97,10 @@ h2 {
     position: relative;
     color: #ffffff;
 }
+.header .right a:hover {
+    color: #ffbb77;
+    border-radius: 15px;
+}
 .header .right .subnav{
     display: none;
     position: absolute;
