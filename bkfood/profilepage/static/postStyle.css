@@ -323,7 +323,7 @@
 
 /* Add product css */
 .add-product:hover{
-    background-color: rgb(91, 175, 147);
+    background-color: #fa5;
 }
 .add-product:active{
     border-color: aliceblue;
@@ -335,10 +335,15 @@
     text-align: center;
     display: inline;
     font-weight: bold;
+    color: gray;
 }
+.container-add-product i {
+  color: gray;
+}
+
 .add-product {
-    background-color: aquamarine;
-    border: 2px solid green;
+    background-color: #fb7;
+    border: 2px solid #d44;
     border-radius: 20px;
     text-decoration: none;
     text-align: center;

@@ -63,8 +63,8 @@
 
 /* Add product css */
 .add-product{
-    background-color: aquamarine;
-    border: 2px solid green;
+    background-color: #fb7;
+    border: 2px solid #d44;
     border-radius: 20px;
     text-decoration: none;
     text-align: center;
@@ -73,7 +73,7 @@
     right: 35px;
 }
 .add-product:hover{
-    background-color: rgb(91, 175, 147);
+    background-color: #fa5;
 }
 .add-product:active{
     border-color: aliceblue;
@@ -89,10 +89,12 @@
 
 .container-add-product i{
     margin: auto;
+    color: rgb(63, 63, 63);
 }
 .container-add-product h3{
     font-size: 18px;
     margin: auto 5px;
     text-align: center;
     display: inline;
+    color: rgb(63, 63, 63);
 }

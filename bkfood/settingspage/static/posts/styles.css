@@ -91,8 +91,8 @@ li .info i {
     margin-left: 5px;
 }
 .add-product {
-    background-color: aquamarine;
-    border: 2px solid green;
+    background-color: #fa5;
+    border: 2px solid#d44;
     border-radius: 20px;
     text-decoration: none;
     text-align: center;
@@ -112,6 +112,14 @@ li .info i {
 }
 .container-add-product i{
 margin-right: 5px;
+color: rgb(63, 63, 63);
+}
+.container-add-product h3{
+    font-size: 18px;
+    margin: auto 5px;
+    text-align: center;
+    display: inline;
+    color: rgb(63, 63, 63);
 }
 .action-product {
     position: absolute;
