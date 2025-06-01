@@ -4,22 +4,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add/Update Dish</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <title>BKFood - Add/Update Dish</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="{% static 'header.css'%}">
     <link rel="stylesheet" href="{% static 'form.css'%}">
-    <style>
-        body {
-            background-color: aquamarine;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: fit-content; /* Set the height of the body to fill the viewport height */
-            margin: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'footer.css'%}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/5045ba31f9.js" crossorigin="anonymous"></script>
+    <link rel = "icon" href ="{% static 'images/logo.png' %}" type = "image/x-icon"> 
 </head>
 
  <body>
+    <div class="header">
+        <div class="left">
+            <a href="{% url 'homepage:homePage' %}" class="logo">
+                <img src="{% static 'images/logo.png' %}"  alt="logo">
+                <div class = "description">
+                    <h2>BKFood</h2>
+                    <p>Dining Experience Sharing </p>
+                    <p>and Recommendation Platform</p>
+                </div> 
+            </a>
+        </div>
+            
+        <div class="right">
+            <div id="-box-nav">
+                <a href="{% url 'postspage:posts' %}" id="community"><i class="fa fa-fw fa-users"></i>Discover</a>
+                <div class="subnav">
+                    <a href="{% url 'postspage:restaurants' %}">Diners</a>
+                    <a href="{% url 'postspage:posts' %}">Posts</a>
+                </div>
+            </div>
+            <div class="setting_icon">
+                <a href="{% url 'profilepage:logoutPage' %}" class="setting">
+                    <div>
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Log Out</span>
+                    </div>
+                </a>
+            </div>
+            <a href="{% url 'profilepage:profilePage' acc.id%}" class="logo-user" style="width:auto;">
+                <img class="img-user" src = "{{user.avatar.url}}"/>
+            </a>
+            
+        </div>
+    </div>
+    <h1 id="title">Add/Update Dish Information</h1>
     <form method="post" action="" enctype="multipart/form-data">
         {% csrf_token %}
         {{form_product.as_p}}
@@ -28,6 +58,35 @@
             <a class="btn btn-primary" href="{% url 'settingspage:product'%}">Cancel</a>
         </div>
     </form>
+
+    <footer class="footer">
+      <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+      </div>
+      <ul class="social-icon">
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a></li>
+
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a></li>
+      </ul>
+      <ul class="menu">
+        <li class="menu__item"><a class="menu__link" href="{% url 'homepage:homePage'%}">Home</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+      </ul>
+      <p>&copy;2025 BKFood</p>
+  </footer>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

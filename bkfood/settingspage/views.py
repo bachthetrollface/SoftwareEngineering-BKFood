@@ -31,8 +31,10 @@ class CreateProduct(View):
     def get(self, request):
         form_product = ProductForm()
         acc = Account.objects.get(user_ptr=request.user)
+        user = Sharer.objects.get(account=acc) if acc.role == 'sharer' else Manager.objects.get(account=acc)
         context = {
             'acc' : acc,
+            'user': user,
             'form_product':form_product
         }
         return render(request, 'products/addproduct.html', context)
@@ -78,6 +80,7 @@ class editProduct(View):
         pform = ProductForm(instance= _product)
         context = {
             'form_product': pform,
+            'user': user,
             'acc': acc,
         }
         return render(request, 'products/addproduct.html', context)
