@@ -112,7 +112,7 @@ function searchTag(event, tag){
   });
   // Đổi màu tag hiện tại
   const button = event.currentTarget;
-  button.style.backgroundColor = '#f00';
+  button.style.backgroundColor = '#fb7';
 
   var selectElement = document.getElementById("choices");
   var selectedValue = selectElement.value;

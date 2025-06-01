@@ -215,34 +215,38 @@
                 <div class="search">
                     <form action="#TimKiem">
                     <label for="choices">Filter:</label>
-                    <select id="choices" name="type">
-                        <option value="shop">Shop</option>
-                        <option value="product">Product</option>
+                    <br>
+                    <select id="choices" name="type" style="width:auto">
+                        <option value="shop">Diners</option>
+                        <option value="product">Dishes</option>
                         <!-- Thêm các option khác nếu cần -->
                     </select>
                     <input id="searchKey" type="text" placeholder="Type something..." name="search">
                     <!-- <button id = "filter" type="submit"><i class="fa fa-filter"></i></button> -->
-                    <button name="btnSearch" id = "search" type="button" onclick="mainSearch(event)"><i class="fa fa-search"></i></button>
+                    
                     <br>
                     <div class="searchby">
                         <br>
                         <div class="form-group">
                             <label for="city">Location:</label>
+                            <br>
                             <select class="form-select form-select-sm mb-3" id="city" name="city" aria-label=".form-select-sm">
-                            <option value="all" selected>Choose your city</option>           
+                            <option value="all" selected>City</option>           
                             </select>
                             <br>      
                             <select class="form-select form-select-sm mb-3" id="district" name="district" aria-label=".form-select-sm">
-                            <option value="all" selected>Choose your district</option>
+                            <option value="all" selected>District</option>
                             </select>
-                            
+                            <br>
                             <select class="form-select form-select-sm" id="ward" name="ward" aria-label=".form-select-sm">
-                            <option value="all" selected>Choose your ward</option>
+                            <option value="all" selected>Ward</option>
                             </select>
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="t_open">Time:</label>
+                            <label style=>Time:</label>
+                            <br>
+                            <label for="t_open">From:</label>
                             <input class="time"
                                 type="time"
                                 name="t_open"
@@ -251,7 +255,7 @@
                                 value="00:00"
                             required
                             ></input>
-                            {% comment %} <label for="t_closed">Thời gian đóng cửa:</label> {% endcomment %}
+                            <label for="t_closed">to:</label>
                             <input class="time"
                                 type="time"
                                 name="t_closed"
@@ -262,6 +266,9 @@
                             ></input>
                         </div>
                     </div>
+                    <button name="btnSearch" id = "search" type="button" onclick="mainSearch(event)">
+                        <i class="fa fa-search"></i>
+                    </button>
                     </form>
                 </div>
             </div>
