@@ -188,7 +188,7 @@ def detailPost(request, post_id):
         'authorName': author.name,
         'authorAvatar': author.avatar.url,
         'time': post.time,
-        'provider': post.provider.name,
+        'provider': post.provider.name if post.provider else '',
 
         'title': post.title,
         'content': post.content,

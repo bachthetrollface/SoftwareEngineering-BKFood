@@ -1,16 +1,18 @@
 /* ----------posts----------- */
 .posts {
   display: flex;
+  background-color: #f4f4f4;
 }
 
 button{
   background-color: #fff;
   padding-block: 1px;
   padding-inline: 6px;
+  border-radius: 5px;
 }
 
 button:hover{
-  background-color: #24efab;
+  background-color: #f4f4f4;
 }
 
 .sendCmt{
@@ -111,7 +113,8 @@ ul {
 /* --------------searching----------- */
 .searching {
    flex: 1;
-   min-width: 400px;
+   /* min-width: 400px; */
+   width: 200px;
    background-color: beige;
 }
 

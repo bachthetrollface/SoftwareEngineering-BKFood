@@ -14,7 +14,7 @@
         <div class="post-list">
             <ul>
                 {% for item in info %}
-                <li class="item">
+                <li class="item" style="background-color: #fff">
                     <div class="info">
                         <a href="{% url 'profilepage:profilePage' item.post.account.id%}">
                             <img src="{{item.author.avatar.url}}" alt="{{item.post.account.username}}" class="avatar">
@@ -88,6 +88,7 @@
         <div class="searching">
             <div class="search-container">
                 <label for="search">Search for a Post: </label>
+                <br>
                 <input type="search" id="searchPosts" name="search" placeholder="Type something to search...">
                 <button onclick="search_post(event)">Search</button>
             </div>

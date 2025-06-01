@@ -4,19 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 
-      {% if role == 'sharer'%} Registration - Sharer
-      {% elif role == 'manager'%} Registration - Manager
-      {%else%} Registration
-      {%endif%}
-    </title>
+    <title>BKFood - Register</title>
+    <link rel="stylesheet" href="{% static 'css/header.css'%}"></link>
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}"></link>
     <link rel="stylesheet" href="{% static 'css/register.css'%}">
+    <link rel="stylesheet" href="{% static 'css/footer.css'%}"></link>
+    <link rel = "icon" href ="{% static 'images/logo.png' %}" type = "image/x-icon"> 
 </head>
 <body>
-
+<div class="header">
+    <div class="left">
+        <a href="" class="logo">
+            <img src="{% static 'images/logo.png' %}"  alt="logo">
+            <div class = "description">
+                <h2>BKFood</h2>
+                <p>Dining Experience Sharing </p>
+                <p>and Recommendation Platform</p>
+            </div> 
+        </a>
+    </div>
+</div>
 {% if role == 'sharer' %}
 <div class="container">
-  <header class="header">
+  <header class="header2">
     <h1 id="title" class="text-center"><b>Sharer Information</b></h1>
     <p id="description" class="description text-center">
       Please provide the following information!
@@ -79,7 +89,7 @@
 </div>
 {% else %}
 <div class="container">
-    <header class="header">
+    <header class="header2">
       <h1 id="title" class="text-center"><b>Manager Information</b></h1>
       <p id="description" class="description text-center">
         Please provide the following information!
@@ -153,7 +163,34 @@
     </form>
   </div>
 {% endif %}
+<footer class="footer">
+  <div class="waves">
+    <div class="wave" id="wave1"></div>
+    <div class="wave" id="wave2"></div>
+    <div class="wave" id="wave3"></div>
+    <div class="wave" id="wave4"></div>
+  </div>
+  <ul class="social-icon">
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </a></li>
+
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </a></li>
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a></li>
+  </ul>
+  <ul class="menu">
+    <li class="menu__item"><a class="menu__link" href="{% url 'homepage:homePage'%}">Home</a></li>
+    <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+  </ul>
+  <p>&copy;2025 BKFood</p>
+</footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script>
     var citis = document.getElementById("city");
     var districts = document.getElementById("district");

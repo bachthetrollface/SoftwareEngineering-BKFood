@@ -172,7 +172,7 @@ function search_post(event){
                         </a>
                         <div class="info">
                             <h5><strong>${post.name}</strong></h5>
-                            <p>Tiêu đề:
+                            <p>Title:
                                 <strong class="titleLink" onclick = "showDetailPosts(event, ${post.id} )">${post.title}</strong>
                             </p>
                             <div class="groupInResult">
@@ -185,11 +185,12 @@ function search_post(event){
                                 <a href="/profile/${post.provider.id}"><p>${post.provider.name}</p></a>
                     `;
                 }
-                else{
+                else if (post.adress) {
                     address = `
                                 <p>${post.address}</p>
                     `;
                 }
+                else address = ``
                 var resultElement2 = `
                             </div>
                             <div class="groupInResult">
@@ -227,7 +228,7 @@ function showDetailPosts(event, postId ){
                     <h3><strong>${detailPost.authorName}</strong></h3>
                     <h6>Time: <strong> ${formatTime(detailPost.time)}</strong></h6>
                     <p>
-                    Đang ở: <a href=""><strong>${detailPost.provider}</strong></a>
+                    Is at: <a href=""><strong>${detailPost.provider}</strong></a>
                     </p>
                 </div>
                 <h3><strong>${detailPost.title}</strong></h3>

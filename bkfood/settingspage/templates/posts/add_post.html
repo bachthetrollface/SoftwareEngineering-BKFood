@@ -54,7 +54,7 @@
                 <img src="{{user.avatar.url}}" alt="image" width="70px" height="70px">
                 <h3 class="name"> <strong>{{user.name}}</strong></h3>
                 <p>Time: {{time}}</p>
-                <p>Đang ở:
+                <p>Is at:
                   <select name="provider_post" id="provider_post">
                       {% for pro in provider %}
                       <option  value="{{pro.account_id}}">{{pro.name}}</option>
@@ -65,21 +65,21 @@
                 
                 <i class="fa-solid fa-location-dot"></i>
                 <select  class="form-select form-select-sm mb-3" id="city" name="city" aria-label=".form-select-sm">
-                    <option value="" selected>Chọn tỉnh thành</option>           
+                    <option value="" selected>Choose your city</option>           
                     </select>
                               
                     <select class="form-select form-select-sm mb-3" id="district" name="district" aria-label=".form-select-sm">
-                    <option value="" selected>Chọn quận huyện</option>
+                    <option value="" selected>Choose your district</option>
                     </select>
                     
                     <select class="form-select form-select-sm" id="ward" name="ward" aria-label=".form-select-sm">
-                    <option value="" selected >Chọn phường xã</option>
+                    <option value="" selected >Choose your ward</option>
                 </select>
-                <h4><input id="address_post" name="address_post" placeholder="Nhập địa chỉ cụ thể" class="tieude"></h4>
+                <h4><input id="address_post" name="address_post" placeholder="Specific address" class="tieude"></h4>
                 
-                <h3><input required id="title_post" name="title_post" type="text" placeholder="Nhập tiêu đề" class="tieude"></h3>
-                <textarea required id="content_post" name="content_post"  cols="78" rows="15" placeholder="Nhập nội dung vào đây nhé"></textarea>
-                <p>Chọn ảnh:</p>
+                <h3><input required id="title_post" name="title_post" type="text" placeholder="Title" class="tieude"></h3>
+                <textarea required id="content_post" name="content_post"  cols="78" rows="15" placeholder="Write something"></textarea>
+                <p>Choose image(s):</p>
                 <input type="file" name="images" id="images" multiple>
                 <div class="submit">
                   <input name="next" type="hidden" value="{{ next }}"/>

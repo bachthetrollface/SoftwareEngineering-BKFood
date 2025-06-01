@@ -18,7 +18,7 @@
                 <img src="{{user.avatar.url}}" alt="image" width="70px" height="70px">
                 <h3 class="name"> <strong>{{user.name}}</strong></h3>
                 <p>Time: {{post.time}}</p>
-                <p>Đang ở:
+                <p>Is at:
                     <select name="provider_post" id="provider_post">
                         {% for pro in provider %}
                         <option  value="{{pro.account_id}}">{{pro.name}}</option>
@@ -40,10 +40,10 @@
                 <select class="form-select form-select-sm" id="ward" name="ward" aria-label=".form-select-sm" required>
                 <option value="{{post.ward}}" selected >{{post.district}}</option>
                 </select>
-                <h4><input required id="address_post" name="address_post" placeholder="Nhập địa chỉ cụ thể" class="tieude" value="{{post.address}}"></h4>
+                <h4><input required id="address_post" name="address_post" placeholder="Specific address" class="tieude" value="{{post.address}}"></h4>
                 
-                <h3><input required id="title_post" name="title_post" type="text" placeholder="Nhập tiêu đề" class="tieude" value="{{post.title}}"></h3>
-                <textarea  required id="content_post" name="content_post"  cols="78" rows="15" placeholder="Nhập nội dung vào đây nhé">{{post.content}}</textarea>
+                <h3><input required id="title_post" name="title_post" type="text" placeholder="Title" class="tieude" value="{{post.title}}"></h3>
+                <textarea  required id="content_post" name="content_post"  cols="78" rows="15" placeholder="Write something">{{post.content}}</textarea>
                 {% for form in form_img %}
                 {% if form.instance.isDelete == False %} 
                 <div style="background-color: aliceblue;" class="paragraph-container">
@@ -64,7 +64,7 @@
                 </div>
                 {% endif %}
                 {% endfor %}
-                <p>Chọn ảnh:</p>
+                <p>Choose image(s):</p>
                 <input type="file" name="images" id="images" multiple>
                 <div class="submit">
                 <button type="">Submit</button>
