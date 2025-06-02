@@ -91,7 +91,7 @@ h1{
     margin-left: 5px;
 }
 .add-product {
-    background-color: #fa5;
+    background-color: #fb7;
     border: 2px solid#d44;
     border-radius: 20px;
     text-decoration: none;
@@ -100,6 +100,9 @@ h1{
     bottom: 35px;
     right: 35px;
     justify-content: center;
+}
+.add-product:hover {
+    background-color: #fa5;
 }
 .container-add-product {
     padding: 10px 13px;

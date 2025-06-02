@@ -118,7 +118,7 @@ class Product(models.Model):
         ('entertainment', 'Entertainment'),
         ('services', 'Services'),
     ]
-    provider = models.ForeignKey(Manager, on_delete=models.CASCADE)
+    provider = models.ForeignKey(Manager, on_delete=django.db.models.deletion.CASCADE)
 
     name = models.TextField(max_length=50)
     name_stripped = models.TextField(max_length=50, null=True)
@@ -143,7 +143,7 @@ class Product(models.Model):
 
 
 class Post(models.Model):
-    account = models.ForeignKey(Account, on_delete=models.CASCADE)
+    account = models.ForeignKey(Account, on_delete=django.db.models.deletion.CASCADE)
     title = models.TextField()
     content = models.TextField()
     name_stripped = models.CharField(max_length=150000, null=True)
@@ -173,7 +173,7 @@ class Post(models.Model):
 
 
 class Image(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
+    post = models.ForeignKey(Post, on_delete=django.db.models.deletion.CASCADE, null=True)
     img = models.ImageField(upload_to=imgs_path)
     isDelete = models.BooleanField(default=False)
     def __str__(self):
@@ -182,8 +182,8 @@ class Image(models.Model):
 
 # vote_profile_model
 class StarVote(models.Model):
-    account = models.ForeignKey(Account, on_delete=models.CASCADE)
-    manager = models.ForeignKey(Manager, on_delete=models.CASCADE)
+    account = models.ForeignKey(Account, on_delete=django.db.models.deletion.CASCADE)
+    manager = models.ForeignKey(Manager, on_delete=django.db.models.deletion.CASCADE)
     stars = models.IntegerField(default=0)
     def __str__(self):
         return f"{self.account} Voted For {self.manager}"
@@ -191,8 +191,8 @@ class StarVote(models.Model):
 
 # like + comment
 class UserLike(models.Model):
-    account = models.ForeignKey(Account, on_delete=models.CASCADE, null= True)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
+    account = models.ForeignKey(Account, on_delete=django.db.models.deletion.CASCADE, null= True)
+    post = models.ForeignKey(Post, on_delete=django.db.models.deletion.CASCADE, null=True)
 
     # class Meta:
     #     # primary key ( account,post)
@@ -201,7 +201,7 @@ class UserLike(models.Model):
     #     ]
 
 class Comment(models.Model):
-    account = models.ForeignKey(Account, on_delete=models.CASCADE, null=True)
+    account = models.ForeignKey(Account, on_delete=django.db.models.deletion.CASCADE, null=True)
     post = models.ForeignKey(Post, on_delete=django.db.models.deletion.CASCADE)
     time = models.DateTimeField(default=timezone.datetime.now())
     content = models.TextField()
